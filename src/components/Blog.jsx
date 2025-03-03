@@ -53,9 +53,11 @@ export default function InfoCards() {
       {/* Banner Image Container */}
       <Box
         sx={{
-          width: { xs: "95%", sm: "90%", md: "80%" },
-          mx: "auto",
+          width: "100%",
+          mx: 0, // No horizontal margin
           mb: 2,
+          mt: 0, // Ensure no margin at the top
+          pt: 0, // Ensure no padding at the top
         }}
       >
         <Box
@@ -69,6 +71,7 @@ export default function InfoCards() {
           }}
         />
       </Box>
+
 
       {/* Cards Section */}
       <Container sx={{ py: 4 }}>
