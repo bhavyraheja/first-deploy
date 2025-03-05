@@ -1,5 +1,6 @@
 import React from "react";
 import { Box, Typography } from "@mui/material";
+import { motion } from "framer-motion";
 
 export default function Testimonials() {
   // Example testimonial data (3 cards side by side)
@@ -22,13 +23,37 @@ export default function Testimonials() {
   ];
 
   return (
-    <Box sx={{ backgroundColor: "#fff", py: 4 }}>
+    <Box sx={{ backgroundColor: "#fff", py: 4, mb: "1rem" }}>
       {/* Heading above cards */}
-      <Box sx={{ maxWidth: "80%", mx: "auto", mb: 4, textAlign: "center" }}>
+      {/* <Box sx={{ maxWidth: "80%", mx: "auto", mb: 4, textAlign: "center" }}>
         <Typography variant="h5" sx={{ fontWeight: "bold" }}>
           Don’t take a word for it
         </Typography>
-      </Box>
+      </Box> */}
+      <motion.div
+        initial={{ x: 50, opacity: 0 }}
+        whileInView={{ x: 0, opacity: 1 }}
+        transition={{ type: "tween", duration: 1 }}
+        viewport={{ once: true, amount: 0.3 }}
+        style={{
+          overflow: 'hidden',
+          width: '100%',
+          display: 'grid',
+          justifyContent: 'center'
+        }}
+      >
+        <Typography
+          variant="h5"
+          sx={{
+            fontWeight: "bold",
+            textAlign: "center",
+            mb: '2rem',
+            width: 'fit-content'  // Ensures the Typography doesn't stretch unnecessarily
+          }}
+        >
+          Don't take a word for it
+        </Typography>
+      </motion.div>
 
       {/* Container for the 3 cards */}
       <Box

@@ -191,10 +191,10 @@ export default function Footer() {
               src="/images/logo.png"
               alt="SecTheta Logo"
               sx={{
-                width: "100px",
-                height: "100px",
+                width: "9rem",
+                height: "9rem",
                 objectFit: "contain",
-                mb: 1,
+                mt: "-2rem",
                 cursor: "pointer",
               }}
               onClick={() => {
@@ -202,14 +202,14 @@ export default function Footer() {
                 window.scrollTo(0, 0);
               }}
             />
-            <Typography variant="body2" sx={{ color: "#fff", maxWidth: 250 }}>
+            <Typography variant="body2" sx={{ color: "#fff", maxWidth: 250, mt: "-1rem" }}>
               SecTheta was created to fill the gap in the market for accessible, practical, and expert-led payment security training.
             </Typography>
           </Grid>
 
           {/* Middle Column: Explore links */}
           <Grid item xs={12} md={4}>
-            <Typography variant="h6" sx={{ color: "#fff", fontWeight: "bold", mb: 1 }}>
+            <Typography variant="h6" sx={{ color: "#fff", fontWeight: "bold", mb: 1, mt: "1.7rem" }}>
               Explore
             </Typography>
             <Box sx={{ display: "flex", flexDirection: "column", gap: 0.5 }}>

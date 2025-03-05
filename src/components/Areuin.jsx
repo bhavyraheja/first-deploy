@@ -9,12 +9,11 @@ export default function AreYouIn() {
         flexDirection: 'column',
         alignItems: 'center',
         gap: 2,           // spacing between text and button
-        textAlign: 'center',
-        mt: 4,            // top margin, optional
+        textAlign: 'center',         // top margin, optional
       }}
     >
       {/* "Are you in?" with "in" in red */}
-      <Typography variant="h5" sx={{ fontWeight: 400 }}>
+      <Typography variant="h5" sx={{ fontWeight: 450 }}>
         Are you{' '}
         <Box component="span" sx={{ color: 'red', fontWeight: 'bold' }}>
           in

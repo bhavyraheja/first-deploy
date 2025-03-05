@@ -112,6 +112,7 @@ const ComparisonTable = () => {
         textAlign: "center",
         mt: 6,
         px: { xs: 1, sm: 2, md: 4 },
+        pt: '6rem'
       }}
     >
       {/* Heading */}
@@ -122,7 +123,7 @@ const ComparisonTable = () => {
       >
         How are we{" "}
         <Box component="span" sx={{ color: "red", fontWeight: "bold" }}>
-          Different?
+          Different ?
         </Box>
       </Typography>
 
@@ -147,7 +148,7 @@ const ComparisonTable = () => {
         }}
       >
         "Our competitors also teach Information Security. <br />
-        That's where the similarity ends."
+        Thats where the similarity ends."
       </Typography>
 
       {/* Header Snippet */}
@@ -184,7 +185,7 @@ const ComparisonTable = () => {
             vs{" "}
           </Box>
           <Box component="span" sx={{ fontWeight: "bold" }}>
-            Competitor
+            Competitors
           </Box>
         </Typography>
       </Box>
@@ -249,7 +250,7 @@ const ComparisonTable = () => {
       </Box>
 
       {/* Comparison Table */}
-      <Box sx={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
+      <Box sx={{ display: 'flex', justifyContent: 'center', width: '100%', mb: 6 }}>
         <TableContainer
           component={Paper}
           sx={{
@@ -290,8 +291,10 @@ const ComparisonTable = () => {
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    flexDirection: 'column'
+                    flexDirection: 'column',
+                   
                   }}>
+                    {/* image sectheta */}
                     <Box
                       component="img"
                       src="/images/logo.png"
@@ -302,7 +305,8 @@ const ComparisonTable = () => {
                         height: 'auto', // Maintains aspect ratio
                         objectFit: 'contain', // Ensures it doesn’t get stretched or cropped
                         display: 'block', // Prevents extra spacing below the image
-                        mx: 'auto' // Centers the image horizontally if needed
+                        mx: 'auto' ,// Centers the image horizontally if needed
+                        mt: "-0.5rem"
                       }}
                     />
                   </Box>

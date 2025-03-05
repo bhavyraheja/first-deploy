@@ -145,12 +145,12 @@ export default function AllCourses() {
   const activeCourses = courseData[activeFilter] || [];
 
   return (
-    <Box sx={{ width: "100%", textAlign: "center", pt: 6, pb: 8 }}>
+    <Box sx={{ width: "100%", textAlign: "center", pt: "8rem", pb: 8, }}>
       {/* Heading with partial red text */}
       <Typography variant="h4" sx={{ fontWeight: "bold", mb: 1 }}>
         Course{" "}
         <Box component="span" sx={{ color: "#E32933" }}>
-          library
+          Library
         </Box>
       </Typography>
 
@@ -163,7 +163,7 @@ export default function AllCourses() {
       <Typography
         variant="body1"
         sx={{
-          maxWidth: 600,
+          maxWidth: 650,
           mx: "auto",
           color: "text.secondary",
           mb: 6,

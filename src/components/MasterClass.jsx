@@ -905,7 +905,7 @@ import { Box, Typography, Button, Grid, Divider } from "@mui/material";
 
 const MasterClass = () => {
   return (
-    <Box sx={{ minHeight: "100vh", py: 6 }}>
+    <Box sx={{ minHeight: "100vh", py: 6, pt: "8rem" }}>
       {/* Hero Section */}
       <Box
         sx={{
@@ -929,11 +929,11 @@ const MasterClass = () => {
         sx={{
           width: { xs: "95%", sm: "90%", md: "80%" },
           mx: "auto",
-          mb: 6,
+          mb: 2,
           display: "flex",
           flexWrap: "wrap",
           justifyContent: "center",
-          gap: 4,
+          gap: 3,
         }}
       >
         {/* Card 1 */}
@@ -1243,7 +1243,7 @@ const MasterClass = () => {
       </Box>
 
       {/* Additional Information Section */}
-      <Box
+      {/* <Box
         sx={{
           width: { xs: "95%", sm: "90%", md: "80%" },
           mx: "auto",
@@ -1312,7 +1312,7 @@ const MasterClass = () => {
       </Box>
 
       {/* Footer Note */}
-      <Box
+      {/* <Box
         sx={{
           width: { xs: "95%", sm: "90%", md: "80%" },
           mx: "auto",
@@ -1323,7 +1323,7 @@ const MasterClass = () => {
         <Typography variant="body2" sx={{ color: "#777" }}>
           * Note: MasterClass sessions are available online and on-demand. Enroll now to secure your spot!
         </Typography>
-      </Box>
+      </Box>  */}
     </Box>
   );
 };

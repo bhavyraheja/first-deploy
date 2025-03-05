@@ -113,14 +113,13 @@ export default function ScrollControlledAnimationScreen() {
         backgroundColor: "#000", 
         position: "relative", 
         width: "100%", 
-        minHeight: "100vh",
-        overflow: "hidden",
+        minHeight: "10vh",
         pt: { xs: 8, sm: 10 },
         backgroundImage: "radial-gradient(circle at 10% 20%, rgba(70, 0, 120, 0.1) 0%, rgba(0, 0, 0, 0) 80%)",
       }}
     >
       {/* White Arch at the top with enhanced curve */}
-      <Box sx={{ position: "absolute", top: 0, left: 0, width: "100%", overflow: "hidden", lineHeight: 0 }}>
+      <Box sx={{ position: "absolute", top: 0, left: 0, width: "100%", lineHeight: 0 }}>
         <svg viewBox="0 0 1440 200" preserveAspectRatio="none" style={{ display: "block", width: "100%" }}>
           <path
             fill="white"
@@ -147,7 +146,7 @@ export default function ScrollControlledAnimationScreen() {
         <Box sx={{ 
           width: "100%", 
           textAlign: "center", 
-          mb: 4, 
+          // mb: 4, 
           pt: { xs: 2, sm: 4 },
           zIndex: 5,
           position: "relative"

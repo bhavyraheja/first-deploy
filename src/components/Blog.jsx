@@ -51,7 +51,7 @@ export default function InfoCards() {
   return (
     <>
       {/* Banner Image Container */}
-      <Box
+      <div
         sx={{
           width: "100%",
           mx: 0, // No horizontal margin
@@ -60,17 +60,17 @@ export default function InfoCards() {
           pt: 0, // Ensure no padding at the top
         }}
       >
-        <Box
-          component="img"
+        <img
+          // component="img"
           src="/images/Blogmain.png"
           alt="Main Blog Banner"
-          sx={{
+          style={{
             width: "100%",
             height: "auto",
             display: "block",
           }}
         />
-      </Box>
+      </div>
 
 
       {/* Cards Section */}

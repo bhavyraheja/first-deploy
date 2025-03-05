@@ -1,8 +1,21 @@
 import React from "react";
-import { Box, Grid, Typography, TextField, Button, Paper, useMediaQuery, useTheme } from "@mui/material";
-import PaymentIcon from "@mui/icons-material/Payment";
+import { Box, Card, CardContent, Grid, Typography, TextField, Button, Paper, useMediaQuery, useTheme } from "@mui/material";
 import LockIcon from "@mui/icons-material/Lock";
-import SecurityIcon from "@mui/icons-material/Security";
+
+const features = [
+  {
+    title: "Hands-on projects and OJT experience",
+    icon: "https://img.icons8.com/?size=100&id=48580&format=png&color=000000", 
+  },
+  {
+    title: "Placement Assistance",
+    icon: "https://img.icons8.com/?size=100&id=xJG7tzPOR5hv&format=png&color=000000",
+  },
+  {
+    title: "Certification that boosts careers",
+    icon: "https://img.icons8.com/?size=100&id=5yawAPzTGLgy&format=png&color=000000",
+  },
+];
 
 export default function Course() {
   const theme = useTheme();
@@ -36,7 +49,7 @@ export default function Course() {
             gap: "1.25rem",
             justifyContent: "center",
             height: "100%",
-            textAlign: { xs: "center", md: "left" }
+            textAlign: { xs: "center", md: "center" }
           }}>
             <Box sx={{
               display: "inline-flex",
@@ -47,7 +60,7 @@ export default function Course() {
               px: 2,
               py: 0.75,
               maxWidth: { xs: "100%", md: "fit-content" },
-              margin: { xs: "0 auto", md: "0" }
+              margin: { xs: "0 auto", md: "center" }
             }}>
               <Typography variant="body2" sx={{ fontSize: "0.9rem", fontWeight: 500, color: "#991B1B" }}>
                 Based on your Goals: <strong>Cybersecurity Courses</strong>
@@ -69,62 +82,38 @@ export default function Course() {
 
             <Typography variant="body1" sx={{
               color: "#4B5563",
-              lineHeight: 1.7,
-              fontSize: "1.05rem",
+              fontSize: "1rem",
               maxWidth: "95%"
             }}>
               Master payment security with a focus on PCI DSS to gain industry-relevant skills to meet job market demands as a
               certified professional.
             </Typography>
 
-            {/* Feature Highlights */}
-            <Box sx={{
-              display: "flex",
-              flexWrap: "wrap",
-              gap: { xs: "1rem", md: "1.5rem" },
-              justifyContent: { xs: "center", md: "flex-start" },
-              mt: 1
+            <Typography variant="subtitle2" sx={{
+              fontWeight: 700,
+              color: "#111827",
+              fontSize: { xs: "1.5rem", sm: "1.75rem", md: "1rem" },
+              letterSpacing: "-0.025em",
+              lineHeight: 1.2
             }}>
-              <Paper elevation={0} sx={{
-                display: "flex",
-                alignItems: "center",
-                gap: 1,
-                px: 2,
-                py: 1,
-                borderRadius: "1rem",
-                backgroundColor: "#F3F4F6",
-                border: "1px solid #E5E7EB"
-              }}>
-                <PaymentIcon sx={{ color: "#DC2626", fontSize: "1.2rem" }} />
-                <Typography variant="body2" sx={{ fontSize: "0.9rem", fontWeight: 500 }}>Payment Security</Typography>
-              </Paper>
-              <Paper elevation={0} sx={{
-                display: "flex",
-                alignItems: "center",
-                gap: 1,
-                px: 2,
-                py: 1,
-                borderRadius: "1rem",
-                backgroundColor: "#F3F4F6",
-                border: "1px solid #E5E7EB"
-              }}>
-                <SecurityIcon sx={{ color: "#DC2626", fontSize: "1.2rem" }} />
-                <Typography variant="body2" sx={{ fontSize: "0.9rem", fontWeight: 500 }}>PCI DSS</Typography>
-              </Paper>
-              <Paper elevation={0} sx={{
-                display: "flex",
-                alignItems: "center",
-                gap: 1,
-                px: 2,
-                py: 1,
-                borderRadius: "1rem",
-                backgroundColor: "#F3F4F6",
-                border: "1px solid #E5E7EB"
-              }}>
-                <LockIcon sx={{ color: "#DC2626", fontSize: "1.2rem" }} />
-                <Typography variant="body2" sx={{ fontSize: "0.9rem", fontWeight: 500 }}>Certification</Typography>
-              </Paper>
-            </Box>
+              Features:
+            </Typography>
+
+            <Grid container spacing={2} justifyContent="center">
+              {features.map((feature, index) => (
+                <Grid item xs={12} sm={6} md={4} key={index}>
+                  {/* <Card variant="outlined" sx={{ p: 1, textAlign: "center", height: "100%",bgcolor: "#E32933", borderRadius: '1rem' }}> */}
+                  <Card variant="outlined" sx={{ p: 1, textAlign: "center", height: "100%", borderRadius: '1rem' }}>
+                    <CardContent>
+                      <img src={feature.icon} alt="feature-icon" width="50" />
+                      <Typography variant="body2" sx={{ mt: 2, fontWeight: 400,  }}>
+                        {feature.title}
+                      </Typography>
+                    </CardContent>
+                  </Card>
+                </Grid>
+              ))}
+            </Grid>
           </Box>
         </Grid>
 
@@ -204,28 +193,51 @@ export default function Course() {
                   }
                 }}
               />
-              <TextField
-                label="Phone Number"
-                variant="outlined"
-                size="medium"
-                fullWidth
-                InputProps={{
-                  sx: {
-                    backgroundColor: "#F9FAFB",
-                    borderRadius: "0.75rem",
-                    fontSize: isMobile ? "0.95rem" : "1rem",
-                    "& fieldset": {
-                      borderColor: "#E5E7EB",
-                    },
-                    "&:hover fieldset": {
-                      borderColor: "#D1D5DB",
-                    },
-                    "&.Mui-focused fieldset": {
-                      borderColor: "#DC2626",
-                    }
-                  }
-                }}
-              />
+              <Grid container spacing={2} alignItems="center">
+                {/* Country Code Field */}
+                <Grid item xs={5} sm={4} md={3}>
+                  <TextField
+                    label="Country Code"
+                    type="text"
+                    variant="outlined"
+                    size="medium"
+                    fullWidth
+                    placeholder="+91"
+                    InputProps={{
+                      sx: {
+                        backgroundColor: "#F9FAFB",
+                        borderRadius: "0.75rem",
+                        fontSize: isMobile ? "0.95rem" : "1rem",
+                        textAlign: "center",
+                        "& fieldset": { borderColor: "#E5E7EB" },
+                        "&:hover fieldset": { borderColor: "#D1D5DB" },
+                        "&.Mui-focused fieldset": { borderColor: "#DC2626" },
+                      },
+                    }}
+                  />
+                </Grid>
+
+                {/* Phone Number Field */}
+                <Grid item xs={7} sm={8} md={9}>
+                  <TextField
+                    label="Phone Number"
+                    variant="outlined"
+                    size="medium"
+                    fullWidth
+                    type="tel"
+                    InputProps={{
+                      sx: {
+                        backgroundColor: "#F9FAFB",
+                        borderRadius: "0.75rem",
+                        fontSize: isMobile ? "0.95rem" : "1rem",
+                        "& fieldset": { borderColor: "#E5E7EB" },
+                        "&:hover fieldset": { borderColor: "#D1D5DB" },
+                        "&.Mui-focused fieldset": { borderColor: "#DC2626" },
+                      },
+                    }}
+                  />
+                </Grid>
+              </Grid>
               <Button
                 variant="contained"
                 sx={{
@@ -237,11 +249,11 @@ export default function Course() {
                   fontWeight: 600,
                   padding: "0.85rem",
                   "&:hover": { backgroundColor: "#B91C1C" },
-                  boxShadow: "0px 4px 6px rgba(220, 38, 38, 0.25)",
+                  // boxShadow: "0px 4px 6px rgba(220, 38, 38, 0.25)",
                   transition: "all 0.2s ease-in-out",
                   "&:active": {
                     transform: "translateY(2px)",
-                    boxShadow: "0px 2px 3px rgba(220, 38, 38, 0.25)",
+                    // boxShadow: "0px 2px 3px rgba(220, 38, 38, 0.25)",
                   }
                 }}
               >
@@ -264,34 +276,6 @@ export default function Course() {
           </Paper>
         </Grid>
       </Grid>
-
-      {/* Course Image Section
-      <Box
-        sx={{
-          marginTop: { xs: 4, md: 5 },
-          width: { xs: "100%", md: "40%" },
-          position: "relative",
-          float: { xs: "none", md: "left" },
-          marginRight: { xs: 0, md: 3 },
-          marginBottom: { xs: 0, md: 3 },
-          '& img': {
-            width: '100%',
-            height: 'auto',
-            maxHeight: { xs: '200px', md: '250px' },
-            objectFit: 'cover',
-            borderRadius: '1.25rem',
-            boxShadow: '0 4px 20px rgba(0,0,0,0.08)',
-          }
-        }}
-      >
-        <picture>
-          <img
-            src="/images/IMAGE.png"
-            alt="Payment Security Certificate Course"
-            loading="lazy"
-          />
-        </picture>
-      </Box> */}
     </Box>
   );
 }

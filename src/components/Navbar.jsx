@@ -162,10 +162,10 @@ const Navbar = () => {
         sx={{
           backgroundColor: "transparent", // Changed from "#fff" to "transparent"
           width: "100%",
-          height: { xs: "80px", md: "100px" },
+          height: { xs: "80px", md: "80px" },
           display: "flex",
           justifyContent: "center",
-          py: { xs: 1, md: 2 },
+          paddingTop: { xs: 1, md: 2 },
           position: "fixed",
           top: 0,
           left: 0,
@@ -179,7 +179,7 @@ const Navbar = () => {
             alignItems: "center",
             backgroundColor: "#da3d33",
             borderRadius: "9999px",
-            px: { xs: 2, sm: 4, md: 6 },
+            px: { xs: 2, sm: 4, md: 1 },
             py: 1,
             gap: 4,
             justifyContent: "space-between",
@@ -197,6 +197,7 @@ const Navbar = () => {
               borderRadius: "50%",
               objectFit: "contain",
               cursor: "pointer",
+              mt: "-0.8rem"
             }}
             onClick={() => navigate("/")}
           />
@@ -223,12 +224,12 @@ const Navbar = () => {
                 height: { xs: "40px", md: "50px" },
                 width: { xs: "100px", md: "120px" },
                 fontSize: { xs: "16px", md: "20px" },
-                flexShrink: 0,
+                // flexShrink: 0,
                 "&:hover": {
                   backgroundColor: "#f2f2f2",
                 },
               }}
-              onClick={() => navigate("/login")}
+              onClick={() => navigate("/")}
             >
               Login
             </Button>
@@ -259,7 +260,7 @@ const Navbar = () => {
                   navigate("/toggletable/difference");
                 }}
               >
-                How Are We Different
+                How Are We Different?
               </MenuItem>
             </>
           )}

@@ -35,7 +35,7 @@ outstanding learning experience.”`;
       sx={{
         width: { xs: "90%", md: "80%" },
         mx: "auto",
-        mt: 0,
+        mt: '2rem',
         px: { xs: 2, md: 0 }, // Horizontal padding on mobile devices
       }}
     >
@@ -44,8 +44,9 @@ outstanding learning experience.”`;
         variant="h5"
         sx={{
           fontWeight: "bold",
-          textAlign: "left",
-          fontSize: { xs: "1.25rem", md: "inherit" }, // Reduced font size on mobile
+          textAlign: "center",
+          fontSize: { xs: "2rem", md: "inherit" }, // Reduced font size on mobile
+
         }}
       >
         Why{" "}
@@ -118,32 +119,38 @@ outstanding learning experience.”`;
         </Box>
 
         {/* Right: Video Thumbnail */}
+        <div style={{
+            display:'flex',
+            flexDirection:'column'}}>
+          
         <Box
           onClick={handleImageToggle}
           sx={{
             position: "relative",
-            width: { xs: "100%", md: isImageExpanded ? 600 : 320 },
             height: { xs: isImageExpanded ? 400 : 200, md: isImageExpanded ? 400 : 200 },
             borderRadius: 2,
             overflow: "hidden",
-            boxShadow: 2,
             flexShrink: 0,
             transition: "all 0.5s ease-in-out",
             mx: { xs: "auto", md: "unset" },
           }}
         >
-          <Box
-            component="img"
-            src="/images/why.png" // Ensure the path is correct in your public folder
+          <img
+            // component="img"
+            src="/images/founder.png"
             alt="SecTheta Video"
-            sx={{
+            style={{
               width: "100%",
               height: "100%",
-              objectFit: "cover",
-              display: "block",
+              objectFit: "contain",
+              marginBottom:'12px'
             }}
           />
         </Box>
+          <Typography sx={{position:'absoulte', top:0, left:0,textAlign: "center", fontWeight: "bold", mt:"2rem"}}>
+            Mr. Ajay Kaushik, <br/> Founder
+          </Typography>
+        </div>
       </Box>
     </Box>
   );

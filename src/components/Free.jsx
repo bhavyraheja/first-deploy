@@ -82,6 +82,10 @@ export default function FreeContent() {
       //   p: { xs: 2, sm: 4 },
       //   backgroundColor: "#fff",
       // }}
+      sx={{
+        mb:3,
+        pt: "8rem"
+      }}
       >
         {/* Title */}
         <Typography
@@ -284,10 +288,9 @@ export default function FreeContent() {
               src="/images/Free1.png"
               alt="Payment Security Career Illustration"
               sx={{
-                width: { xs: "90%", sm: "80%", md: "100%" },
-                maxWidth: "450px",
+                width: { xs: "100%", sm: "100%", md: "100%" },
+                maxWidth: "60rem",
                 height: "auto",
-                borderRadius: "12px",
               }}
             />
           </Box>
@@ -313,7 +316,7 @@ export default function FreeContent() {
         </Typography>
 
         {/* Box */}
-        <Box
+        {/* <Box
           sx={{
             width: { xs: "90%", sm: "70%", md: "488px" },
             height: { xs: "auto", md: "80px" },
@@ -339,10 +342,10 @@ export default function FreeContent() {
           >
             Payment Security
           </Typography>
-        </Box>
+        </Box> */}
 
         {/* Three Section Navigation */}
-        <Box
+        {/* <Box
           sx={{
             display: "flex",
             flexDirection: "row",
@@ -352,7 +355,7 @@ export default function FreeContent() {
             width: "100%",
           }}
         >
-          {/* Content area with red chevrons */}
+          
           <Box sx={{ flex: 1, display: "flex", justifyContent: "center" }}>
             <Box
               sx={{
@@ -387,7 +390,26 @@ export default function FreeContent() {
               )}
             </Box>
           </Box>
-        </Box>
+        </Box> */}
+        <Box
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              width: { xs: "100%", md: "100%" },
+            }}
+          >
+            <Box
+              component="img"
+              src="/images/career-path.png"
+              alt="Payment Security Career Illustration"
+              sx={{
+                width: { xs: "100%", sm: "80%", md: "100%" },
+                maxWidth: "45rem",
+                height: "auto",
+                borderRadius: "12px",
+              }}
+            />
+          </Box>
 
         {/* Description Section */}
         <Typography
@@ -508,10 +530,11 @@ export default function FreeContent() {
             fontWeight: "bold",
             mb: 2,
             fontSize: { xs: "1.25rem", sm: "1.5rem", md: "1.75rem" },
-            textAlign: { xs: "center", md: "left" },
+            textAlign: { xs: "center", md: "center" },
+            
           }}
         >
-          What Do Payment Security{" "}
+          What Payment Security{" "} <br/>
           <span style={{ color: "red" }}>Professionals</span> Do?
         </Typography>
 
@@ -535,13 +558,12 @@ export default function FreeContent() {
           variant="body1"
           sx={{
             mb: 4,
-            ml: { xs: 0, sm: 4, md: 8, lg: 64 },
+            ml: { xs: 0, sm: 4, md: 8, lg: 50 },
             textAlign: { xs: "center", sm: "left" },
             px: { xs: 2, sm: 0 },
           }}
         >
-          Let's begin our discussion with a walkthrough of what a Payment
-          Security Professional does.
+          Let's begin our discussion with a walkthrough of what a Payment Security Professional does.
         </Typography>
 
         {/* Responsive Section Title */}
@@ -557,8 +579,8 @@ export default function FreeContent() {
             px: { xs: 2, sm: 0 },
           }}
         >
-          Within a Typical Payment Security Firm, There are{" "}
-          <span style={{ color: "red" }}>Five Key Division</span>
+          Within a Typical Payment Security Firm, there are{" "}
+          <span style={{ color: "red" }}>Five Key Divisions</span>
         </Typography>
 
         {/* 5 Small Cards with Flip on Hover */}
@@ -633,7 +655,11 @@ export default function FreeContent() {
                     variant="body1"
                     sx={{
                       fontWeight: "bold",
-                      fontSize: { xs: "1.1rem", sm: "0.85rem", md: "1rem" } // Better scaling for desktop
+                      fontSize: { xs: "1.1rem", sm: "0.85rem", md: "1rem" }, // Better scaling for desktop
+                      display: "-webkit-box",
+                      WebkitLineClamp: 2, // Limits text to 2 lines
+                      WebkitBoxOrient: "vertical",
+                      overflow: "hidden",
                     }}
                   >
                     {card.title}

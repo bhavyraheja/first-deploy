@@ -48,6 +48,7 @@ export default function Reading() {
         backgroundColor: "#fff",
         display: "flex",
         justifyContent: "center",
+        pt: "8rem"
       }}
     >
       <Box

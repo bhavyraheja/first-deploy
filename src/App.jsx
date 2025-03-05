@@ -21,7 +21,7 @@ function App() {
       <CssBaseline />
       <BrowserRouter>
         <Navbar />
-        <Box sx={{ pt: "120px", minHeight: "100vh", width: "100%", backgroundColor: "background.default" }}>
+        <Box sx={{minHeight: "100vh", width: "100%", backgroundColor: "background.default" }}>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />

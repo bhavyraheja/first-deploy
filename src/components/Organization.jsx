@@ -51,7 +51,7 @@ export default function Companies() {
           variant="h6"
           sx={{ fontWeight: "bold", mb: 4, color: "text.primary", textAlign: "center" }}
         >
-          Professionals associated with us have outlived the following{" "}
+          Professionals associated with us have audited the following{" "}
           <Box component="span" sx={{ color: "red" }}>
             Organizations
           </Box>

@@ -17,8 +17,8 @@ const Home = () => {
       <Hero />
       <Courses />
       {/* <Image /> */}
-      <Why />
       <Animate />
+      <Why />
       <Organization />
       <Bars />
       <Cards />

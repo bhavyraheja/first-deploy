@@ -25,8 +25,7 @@ const ImagePlaceholder = styled("img")(({ theme }) => ({
 
 const FounderImage = styled("img")({
   width: "100%",
-  borderRadius: "50%",
-  maxWidth: "200px",
+  maxWidth: "250px",
 });
 
 const ReadMoreButton = styled(Button)(({ theme }) => ({
@@ -71,8 +70,8 @@ threats with confidence and expertise.
 
   // Short and long text for "Story behind Sectheta"
   const storyShortText = `
-"While working as a strategic leader in the document security industry, I uncovered an unmet
-need for specialized expertise in the emerging document and unstructured data security."
+"Ajay saw a massive gap in the payment security industry—a shortage of skilled professionals
+despite the rising demand for secure digital transactions."
 `;
 
   const storyLongText = `
@@ -81,7 +80,7 @@ despite the rising demand for secure digital transactions.
 
 As the Founder & CEO of Panacea Infosec, he worked closely with Fortune 500 companies, financial
 institutions, and governments, witnessing firsthand the urgent need for hands-on, job-ready
-cybersecurity experts. The problem? Existing courses in the market were too theoretical, lacking
+cybersecurity experts. The problem Existing courses in the market were too theoretical, lacking
 the practical, real-world experience needed to navigate complex payment security challenges.
 Companies were struggling to find professionals who could apply their knowledge in real audits,
 risk assessments, and compliance checks.
@@ -99,6 +98,7 @@ the future of digital payments.
         maxWidth: "800px",
         mx: "auto",
         px: { xs: 2, md: 7 },
+        py: '6rem'
       }}
     >
       <Box py={5}>
@@ -114,13 +114,13 @@ the future of digital payments.
           }}
         >
           {/* Left side: image */}
-          <Box sx={{ flexShrink: 0 }}>
+          {/* <Box sx={{ flexShrink: 0 }}>
             <ImagePlaceholder
               src="/images/aboutt2.png"
               alt="Our Story"
               style={{ height: "200px", width: "200px" }}
             />
-          </Box>
+          </Box> */}
 
           {/* Right side: heading with vertical red line + text */}
           <Box sx={{ flex: 1, minWidth: 300 }}>
@@ -145,7 +145,7 @@ the future of digital payments.
               <Typography variant="h5" sx={{ fontWeight: "bold" }}>
                 Our
                 <br />
-                <Box component="span" sx={{ color: "red", ml: { xs: 0, md: 1 } }}>
+                <Box component="span" sx={{ color: "red", ml: { xs: 0, md: 0 } }}>
                   Story
                 </Box>
               </Typography>
@@ -201,13 +201,13 @@ the future of digital payments.
           </Box>
 
           {/* Right side: image */}
-          <Box sx={{ flexShrink: 0 }}>
+          {/* <Box sx={{ flexShrink: 0 }}>
             <ImagePlaceholder
               src="/images/about1.png"
               alt="Our Mission"
               style={{ height: "200px", width: "200px" }}
             />
-          </Box>
+          </Box> */}
         </Box>
 
         {/* Our Founder */}
@@ -279,8 +279,8 @@ the future of digital payments.
           {/* Founder Image */}
           <Box sx={{ flexShrink: 0, textAlign: "center" }}>
             <FounderImage src="/images/founder.png" alt="Ajay Kaushik" />
-            <Typography variant="subtitle1" sx={{ textAlign: "center" }}>
-              Ajay Kaushik
+            <Typography variant="subtitle1" sx={{ textAlign: "center", mb: '1rem', fontWeight: "bold" }}>
+              Mr. Ajay Kaushik, <br /> Founder
             </Typography>
           </Box>
         </Box>
@@ -294,70 +294,71 @@ the future of digital payments.
                 Sectheta
               </Box>
             </Typography>
+          </Box>
+          {/* under story sectheta */}
+          <Box
+            sx={{ ml: { md: "10rem" } }}
+          >
             <Box
               sx={{
-                position: "absolute",
-                bottom: 0,
-                left: "10px",
-                right: 0,
+                width: "100%",
                 height: "1px",
-                backgroundColor: "#ccc",
-                width: "calc(100% - 20px)",
+                backgroundColor: "#000000",
+                my: 2,
               }}
             />
-          </Box>
-          <SectionDescription
-            sx={{
-              mt: "20px",
-              ml: "10px",
-              whiteSpace: "pre-line",
-            }}
-          >
-            {storyExpanded ? storyLongText : storyShortText}
-          </SectionDescription>
-          <Box
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              gap: 2,
-              mt: 2,
-              ml: "10px",
-            }}
-          >
-            <Typography
-              variant="body1"
-              sx={{ color: "red", fontWeight: "bold", cursor: "pointer" }}
-              onClick={() => setStoryExpanded(!storyExpanded)}
-            >
-              {storyExpanded ? "Know less" : "Know more"}
-            </Typography>
-            <Box
-              onClick={() => setStoryExpanded(!storyExpanded)}
+            <SectionDescription
               sx={{
-                width: 40,
-                height: 40,
-                borderRadius: "50%",
-                backgroundColor: "#E32933",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                cursor: "pointer",
+                mt: "20px",
+                ml: "10px",
               }}
             >
-              <ArrowForwardIosIcon sx={{ color: "#fff", fontSize: 16 }} />
+              {storyExpanded ? storyLongText : storyShortText}
+            </SectionDescription>
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                gap: 2,
+                mt: 2,
+                ml: "10px",
+              }}
+            >
+              <Typography
+                variant="body1"
+                sx={{ color: "red", fontWeight: "bold", cursor: "pointer" }}
+                onClick={() => setStoryExpanded(!storyExpanded)}
+              >
+                {storyExpanded ? "Know less" : "Know more"}
+              </Typography>
+              <Box
+                onClick={() => setStoryExpanded(!storyExpanded)}
+                sx={{
+                  width: 40,
+                  height: 40,
+                  borderRadius: "50%",
+                  backgroundColor: "#E32933",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  cursor: "pointer",
+                }}
+              >
+                <ArrowForwardIosIcon sx={{ color: "#fff", fontSize: 16 }} />
+              </Box>
             </Box>
           </Box>
         </Box>
 
         {/* Our Clients */}
         <Box textAlign="center" py={3}>
-          <Typography variant="h5" sx={{ fontWeight: "bold", mt: "50px" }}>
+          {/* <Typography variant="h5" sx={{ fontWeight: "bold", mt: "50px" }}>
             Our{" "}
             <Box component="span" sx={{ color: "red" }}>
               Clients
             </Box>
-          </Typography>
-          <Typography variant="body1" color="textSecondary" component="div">
+          </Typography> */}
+          <Typography variant="body1" color="textSecondary" component="div" sx={{ mt: "50px" }}>
             <img
               src="/images/clients.png"
               alt="Client Logo"
