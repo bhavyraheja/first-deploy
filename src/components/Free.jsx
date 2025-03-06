@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Box, Typography, Container, Button, TextField } from "@mui/material";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import { ArrowForward } from "@mui/icons-material";
 import Sidebar from "./Sidebar"; // Import the Sidebar component
 
@@ -177,7 +178,22 @@ export default function FreeContent() {
               </Typography>
 
               {/* Arrow Icon - Much bigger and positioned like -> */}
-              <ArrowForward
+              {/* <ArrowForward
+                onClick={handleExpand}
+                sx={{
+                  backgroundColor: "red",
+                  borderRadius: "100%",
+                  padding: { xs: "10px", sm: "12px"},
+                  color: "white",
+                  fontSize: { xs: "32px", sm: "36px"},
+                  transform: expanded ? "rotate(180deg)" : "none",
+                  transition: "transform 0.3s ease",
+                  cursor: "pointer",
+                  "&:hover": { backgroundColor: "#d32f2f" },
+                  marginLeft: "2px",
+                }}
+              /> */}
+              <ArrowForwardIosIcon
                 onClick={handleExpand}
                 sx={{
                   backgroundColor: "red",

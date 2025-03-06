@@ -64,7 +64,7 @@ const Navbar = () => {
 
   // Desktop navigation JSX (non-mobile)
   const desktopNav = (
-    <Box sx={{ display: "flex", gap: 2, flexWrap: "nowrap"}}>
+    <Box sx={{ display: "flex", gap: 6, flexWrap: "nowrap"}}>
       {navLinks.map((item) => (
         <Typography
           key={item.label}

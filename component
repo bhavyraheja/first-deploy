@@ -1,0 +1,38 @@
+<div class="potential-text-frame">
+    <div data-w-id="30ea1ee5-c447-28e8-c01b-468420b916e9" class="potential-text-block"
+        style="will-change: opacity, transform; opacity: 1; transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;">
+        <div class="header-mask">
+            <div class="heading-h5 white">Annually</div>
+        </div>
+        <div class="header-mask">
+            <div class="heading-h1 white">$175K</div>
+        </div>
+        <div class="header-mask">
+            <div class="heading-h5 white">1st Year IB Analyst</div>
+        </div>
+    </div>
+    <div data-w-id="3d05557e-8a83-e500-aad8-399586e0f98d" class="potential-text-block"
+        style="will-change: opacity, transform; opacity: 0; transform: translate3d(0px, 30px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;">
+        <div class="header-mask">
+            <div class="heading-h5 white">Annually</div>
+        </div>
+        <div class="header-mask">
+            <div class="heading-h1 white">$300K</div>
+        </div>
+        <div class="header-mask">
+            <div class="heading-h5 white">1st Year PE Associate</div>
+        </div>
+    </div>
+    <div data-w-id="2037e8b4-fb1a-c21f-cc64-ae54f98944d9" class="potential-text-block set-3"
+        style="will-change: opacity, transform; opacity: 0; transform: translate3d(0px, 30px, 0px) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg); transform-style: preserve-3d;">
+        <div class="header-mask">
+            <div class="heading-h5 white">Annually</div>
+        </div>
+        <div class="header-mask">
+            <div class="heading-h1 white">+$1M</div>
+        </div>
+        <div class="header-mask">
+            <div class="heading-h5 white">IB/PE MD</div>
+        </div>
+    </div>
+</div>

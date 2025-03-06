@@ -44,45 +44,30 @@ export default function ScrollControlledAnimationScreen() {
     };
   }, []);
 
-  // Opacity calculation functions
   function getFirstCenterOpacity(p) {
-    const fadeInEnd = 0.3;   
-    const fadeOutEnd = 0.5;  
-    if (p <= fadeInEnd) return 1;
-    if (p >= fadeOutEnd) return 0;
-    return 1 - (p - fadeInEnd) / (fadeOutEnd - fadeInEnd);
+    if (p <= 0.2) return 1;
+    if (p >= 0.4) return 0;
+    return 1 - (p - 0.2) / 0.2;
   }
-
+  
   function getSecondCenterOpacity(p) {
-    const fadeInStart = 0.3;
-    const fadeInEnd = 0.5;
-    const fadeOutStart = 0.7;
-    const fadeOutEnd = 0.9;
-
-    if (p < fadeInStart) return 0;
-    if (p >= fadeInStart && p <= fadeInEnd) {
-      return (p - fadeInStart) / (fadeInEnd - fadeInStart);
-    }
-    if (p > fadeInEnd && p < fadeOutStart) {
-      return 1;
-    }
-    if (p >= fadeOutStart && p <= fadeOutEnd) {
-      return 1 - (p - fadeOutStart) / (fadeOutEnd - fadeOutStart);
-    }
+    if (p < 0.3) return 0;
+    if (p >= 0.3 && p <= 0.5) return (p - 0.3) / 0.2;
+    if (p > 0.5 && p < 0.7) return 1;
+    if (p >= 0.7) return 1 - (p - 0.7) / 0.2;
     return 0;
   }
-
+  
   function getRightSideOpacity(p) {
-    const fadeInStart = 0.7;
-    const fadeInEnd = 0.9;
-
-    if (p < fadeInStart) return 0;
-    if (p >= fadeInStart && p <= fadeInEnd) {
-      return (p - fadeInStart) / (fadeInEnd - fadeInStart);
-    }
-    if (p > fadeInEnd) return 1;
-    return 0;
+    if (p < 0.6) return 0;
+    if (p >= 0.6 && p <= 0.8) return (p - 0.6) / 0.2;
+    return 1;
   }
+  
+
+
+
+  
 
   const firstCenterOpacity = getFirstCenterOpacity(progress);
   const secondCenterOpacity = getSecondCenterOpacity(progress);
@@ -119,7 +104,7 @@ export default function ScrollControlledAnimationScreen() {
       }}
     >
       {/* White Arch at the top with enhanced curve */}
-      <Box sx={{ position: "absolute", top: 0, left: 0, width: "100%", lineHeight: 0 }}>
+      <Box sx={{ position: "absolute", top: 0, left: 0, width: "100%", lineHeight: 0, zIndex:'9999' }}>
         <svg viewBox="0 0 1440 200" preserveAspectRatio="none" style={{ display: "block", width: "100%" }}>
           <path
             fill="white"
@@ -135,7 +120,8 @@ export default function ScrollControlledAnimationScreen() {
         sx={{ 
           position: "relative", 
           width: "100%", 
-          height: { xs: "130vh", sm: "180vh" }, 
+          // height: { xs: "130vh", sm: "180vh" }, 
+          height: "120vh",
           overflow: "hidden",
           display: "flex",
           flexDirection: "column",
@@ -155,11 +141,12 @@ export default function ScrollControlledAnimationScreen() {
             variant="h3" 
             component="h2" 
             sx={{ 
+              display:'inline-block',
               fontWeight: 700, 
               color: "white",
               fontSize: { xs: "1.8rem", sm: "2.5rem", md: "3rem" },
               textShadow: "0 2px 10px rgba(0,0,0,0.3)",
-              mb: 2
+              mb: 2,
             }}
           >
             Your Career Growth Journey
@@ -208,7 +195,8 @@ export default function ScrollControlledAnimationScreen() {
         <Box
           sx={{
             ...salaryBoxStyles,
-            top: "50%",
+            top:{md:"30%", xs:"40%"},
+           
             left: "50%",
             transform: "translate(-50%, -50%)",
             opacity: firstCenterOpacity,
@@ -271,7 +259,7 @@ export default function ScrollControlledAnimationScreen() {
         <Box
           sx={{
             ...salaryBoxStyles,
-            top: "50%",
+            top: {md:"50%", xs:"60%"},
             left: "50%",
             transform: "translate(-50%, -50%)",
             opacity: secondCenterOpacity,
@@ -334,13 +322,9 @@ export default function ScrollControlledAnimationScreen() {
         <Box
           sx={{
             ...salaryBoxStyles,
-            top: { xs: "70%", sm: "50%" },
-            left: { xs: "50%", sm: "auto" },
-            right: { xs: "auto", sm: "10%" },
-            transform: { 
-              xs: "translate(-50%, -50%)", 
-              sm: "translateY(-50%)" 
-            },
+            top: {md:"75%", xs:"80%"},
+            left: "50%",
+            transform: "translate(-50%, -50%)",
             opacity: rightSideOpacity,
             scale: rightSideOpacity * 0.9 + 0.1,
           }}
@@ -397,26 +381,7 @@ export default function ScrollControlledAnimationScreen() {
           </Box>
         </Box>
         
-        {/* Bottom message that stays visible throughout */}
-        <Box 
-          sx={{ 
-            position: "absolute", 
-            bottom: { xs: "15%", sm: "20%" },
-            left: "50%",
-            transform: "translateX(-50%)",
-            textAlign: "center",
-            zIndex: 5,
-            maxWidth: "600px",
-            width: "90%",
-            p: 3,
-            borderRadius: "12px",
-            backgroundColor: "rgba(0,0,0,0.3)",
-            backdropFilter: "blur(5px)",
-            border: "1px solid rgba(255,255,255,0.05)",
-            opacity: 0.8,
-          }}
-        >
-        </Box>
+
       </Box>
     </Box>
   );

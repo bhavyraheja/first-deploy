@@ -1,8 +1,10 @@
-import React, { useState } from "react";
-import { Box, Typography, useMediaQuery, useTheme } from "@mui/material";
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 
+
+ 
+import React, { useState } from "react";
+import { Box, Typography } from "@mui/material";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+ 
 const modulesData = [
   {
     number: 1,
@@ -54,12 +56,10 @@ const modulesData = [
     image: "/images/bar7.png",
   },
 ];
-
+ 
 export default function ModulesList() {
   const [expanded, setExpanded] = useState(Array(modulesData.length).fill(false));
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
-
+ 
   const handleToggle = (index) => {
     setExpanded((prev) => {
       const newState = [...prev];
@@ -67,7 +67,7 @@ export default function ModulesList() {
       return newState;
     });
   };
-
+ 
   return (
     <Box
       sx={{
@@ -87,7 +87,7 @@ export default function ModulesList() {
             mb: 4,
             fontWeight: 500,
             textAlign: "center",
-            fontSize: { xs: "1.25rem", md: "1.5rem" },
+            fontSize: { xs: "1.25rem", md: "inherit" },
           }}
         >
           Sneek Peek into the Course{" "}
@@ -96,10 +96,10 @@ export default function ModulesList() {
           </Box>
         </Typography>
       </Box>
-
+ 
       <Box
         sx={{
-          width: { xs: "95%", sm: "90%", md: "80%" },
+          width: "80%",
           display: "flex",
           flexDirection: "column",
           gap: 2,
@@ -108,143 +108,134 @@ export default function ModulesList() {
         {modulesData.map((mod, index) => {
           const isExpanded = expanded[index];
           const barColor = isExpanded ? "#F9F9F9" : "#E0E0E0";
+          const minBarHeight = isExpanded ? 180 : 60;
           const textToShow = isExpanded ? mod.longText : mod.shortText;
           const circleBg = isExpanded ? "#E32933" : "#fff";
           const iconColor = isExpanded ? "#fff" : "#000";
-
+ 
           return (
             <Box
               key={mod.number}
               sx={{
-                borderRadius: { xs: "25px", sm: "50px" },
+                minHeight: minBarHeight,
+                borderRadius: "50px",
                 backgroundColor: barColor,
                 display: "flex",
-                flexDirection: "column",
+                alignItems: "center",
+                justifyContent: "space-between",
+                px: 2,
                 overflow: "hidden",
                 transition: "all 0.3s ease",
-                border: isExpanded ? "1px solid #ccc" : "none",
+                ...(isExpanded && {
+                  border: "1px solid #ccc", // Light grey border on expanded state
+                  py: 2, // Extra padding top and bottom
+                }),
               }}
             >
-              {/* Header row - always visible */}
               <Box
                 sx={{
                   display: "flex",
                   alignItems: "center",
-                  justifyContent: "space-between",
-                  p: { xs: 2, sm: 3 },
-                  cursor: "pointer",
+                  gap: 2,
+                  width: "100%",
                 }}
-                onClick={() => handleToggle(index)}
               >
-                <Box
-                  sx={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: { xs: 1, sm: 2 },
-                    width: "calc(100% - 40px)",
-                  }}
-                >
+                {isExpanded ? (
+                  // Expanded state: Responsive layout:
+                  // For xs: stack vertically; for sm and up: row layout (image left, text right)
                   <Box
                     sx={{
-                      minWidth: { xs: 24, sm: 32 },
-                      height: { xs: 24, sm: 32 },
-                      borderRadius: "50%",
-                      backgroundColor: "#fff",
                       display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      fontWeight: "bold",
-                      color: "#000",
-                      boxShadow: "0px 1px 3px rgba(0,0,0,0.1)",
-                    }}
-                  >
-                    {mod.number}
-                  </Box>
-                  <Typography 
-                    variant="body1" 
-                    sx={{ 
-                      fontWeight: 500,
-                      fontSize: { xs: "0.875rem", sm: "1rem" },
-                      overflow: "hidden",
-                      textOverflow: "ellipsis",
-                      display: "-webkit-box",
-                      WebkitLineClamp: 2,
-                      WebkitBoxOrient: "vertical",
-                    }}
-                  >
-                    {mod.shortText}
-                  </Typography>
-                </Box>
-
-                <Box
-                  sx={{
-                    width: { xs: 28, sm: 32 },
-                    height: { xs: 28, sm: 32 },
-                    borderRadius: "50%",
-                    backgroundColor: circleBg,
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    transition: "background-color 0.3s ease",
-                    flexShrink: 0,
-                  }}
-                >
-                  {isMobile ? (
-                    <ArrowDropDownIcon
-                      sx={{
-                        fontSize: 20,
-                        color: iconColor,
-                        transition: "color 0.3s ease",
-                        transform: isExpanded ? "rotate(180deg)" : "rotate(0deg)",
-                      }}
-                    />
-                  ) : (
-                    <ArrowForwardIosIcon
-                      sx={{
-                        fontSize: 16,
-                        color: iconColor,
-                        transition: "color 0.3s ease",
-                        transform: isExpanded ? "rotate(90deg)" : "rotate(0deg)",
-                      }}
-                    />
-                  )}
-                </Box>
-              </Box>
-
-              {/* Expanded content */}
-              {isExpanded && (
-                <Box
-                  sx={{
-                    display: "flex",
-                    flexDirection: "column",
-                    p: { xs: 2, sm: 3 },
-                    pt: 0,
-                  }}
-                >
-                  <Box
-                    component="img"
-                    src={mod.image}
-                    alt={`Module ${mod.number}`}
-                    sx={{
+                      flexDirection: { xs: "column", sm: "row" },
+                      alignItems: { xs: "center", sm: "flex-start" },
+                      gap: 2,
                       width: "100%",
-                      borderRadius: { xs: "15px", sm: "20px" },
-                      aspectRatio: "16/9",
-                      objectFit: "cover",
-                      mb: 2,
-                    }}
-                  />
-                  <Typography 
-                    variant="body2" 
-                    sx={{ 
-                      whiteSpace: "pre-line", 
-                      fontSize: { xs: "0.8125rem", sm: "0.875rem" },
-                      lineHeight: 1.6,
                     }}
                   >
-                    {mod.longText}
-                  </Typography>
-                </Box>
-              )}
+                    <Box
+                      component="img"
+                      src={mod.image}
+                      alt={`Module ${mod.number}`}
+                      sx={{
+                        width: { xs: "100%", sm: "300px" },
+                        height: { xs: "auto", sm: "200px" },
+                        objectFit: "cover",
+                        borderRadius: "30px",
+                        transition: "all 0.3s ease",
+                        pl: { xs: 0, sm: 2 }, // left padding only for sm and above
+                      }}
+                    />
+                    <Box
+                      sx={{
+                        textAlign: "left",
+                        flex: 1,
+                        px: 2,
+                      }}
+                    >
+                      <Typography variant="body1" sx={{ fontWeight: 500, mt: 4 }}>
+                        {mod.shortText}
+                      </Typography>
+                      <Typography variant="body2" sx={{ whiteSpace: "pre-line", mt: 2 }}>
+                        {textToShow}
+                      </Typography>
+                    </Box>
+                  </Box>
+                ) : (
+                  // Collapsed state: number circle + short text centered
+                  <>
+                    <Box
+                      sx={{
+                        width: 32,
+                        height: 32,
+                        borderRadius: "50%",
+                        backgroundColor: "#fff",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        fontWeight: "bold",
+                        color: "#000",
+                        flexShrink: 0, // Prevent circle from shrinking
+                        fontSize: { xs: "0.75rem", md: "inherit" }, // Slightly smaller font on small screens
+                      }}
+                    >
+                      {mod.number}
+                    </Box>
+                    <Typography
+                      variant="body1"
+                      sx={{
+                        fontWeight: 500,
+                        // Responsive font size for the short text on small screens
+                        fontSize: { xs: "0.875rem", md: "inherit" },
+                      }}
+                    >
+                      {textToShow}
+                    </Typography>
+                  </>
+                )}
+              </Box>
+ 
+              <Box
+                onClick={() => handleToggle(index)}
+                sx={{
+                  width: 32,
+                  height: 32,
+                  borderRadius: "50%",
+                  backgroundColor: circleBg,
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  cursor: "pointer",
+                  transition: "background-color 0.3s ease",
+                }}
+              >
+                <ArrowForwardIosIcon
+                  sx={{
+                    fontSize: 16,
+                    color: iconColor,
+                    transition: "color 0.3s ease",
+                  }}
+                />
+              </Box>
             </Box>
           );
         })}
@@ -252,3 +243,5 @@ export default function ModulesList() {
     </Box>
   );
 }
+ 
+ 
