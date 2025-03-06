@@ -241,8 +241,9 @@ the future of digital payments.
                 }}
               />
               <Typography variant="h5" sx={{ fontWeight: "bold" }}>
-                Our{" "}
-                <Box component="span" sx={{ color: "red" }}>
+                Our
+                <br />
+                <Box component="span" sx={{ color: "red", ml: { xs: 0, md: 0 } }}>
                   Founder
                 </Box>
               </Typography>

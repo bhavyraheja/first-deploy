@@ -1,12 +1,12 @@
 import React from "react";
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, useMediaQuery } from "@mui/material";
 import { motion } from "framer-motion";
 
 export default function Testimonials() {
   // Example testimonial data (3 cards side by side)
   const cards = [
     {
-      name: "Ravikant Mishra.",
+      name: "Ravikant Mishra",
       role: "Fresher",
       text: `The course is undoubtedly one of the best in the field. Through expert guidance and hands-on learning, I gained a deep understanding of securing digital transactions. This training gave me a competitive edge before stepping into the industry—an invaluable investment in my career.`,
     },
@@ -18,28 +18,25 @@ export default function Testimonials() {
     {
       name: "Chaaya Kumari",
       role: "Cybersecurity Engineer",
-      text: `“Combination of expert guidance and practical insights, has been key to my growth in cybersecurity. This course made complex security concepts easy to understand and apply—truly one of the best learning experiences I’ve had!”`,
+      text: `Combination of expert guidance and practical insights has been key to my growth in cybersecurity. This course made complex security concepts easy to understand and apply—truly one of the best learning experiences I’ve had!`,
     },
   ];
 
+  const isMobile = useMediaQuery("(max-width:600px)");
+
   return (
     <Box sx={{ backgroundColor: "#fff", py: 4, mb: "1rem" }}>
-      {/* Heading above cards */}
-      {/* <Box sx={{ maxWidth: "80%", mx: "auto", mb: 4, textAlign: "center" }}>
-        <Typography variant="h5" sx={{ fontWeight: "bold" }}>
-          Don’t take a word for it
-        </Typography>
-      </Box> */}
+      {/* Animated Heading */}
       <motion.div
-        initial={{ x: 50, opacity: 0 }}
-        whileInView={{ x: 0, opacity: 1 }}
-        transition={{ type: "tween", duration: 1 }}
-        viewport={{ once: true, amount: 0.3 }}
+        initial={isMobile ? {} : { x: 50, opacity: 0 }}
+        whileInView={isMobile ? {} : { x: 0, opacity: 1 }}
+        transition={isMobile ? {} : { type: "tween", duration: 1 }}
+        viewport={isMobile ? {} : { once: true, amount: 0.3 }}
         style={{
-          overflow: 'hidden',
-          width: '100%',
-          display: 'grid',
-          justifyContent: 'center'
+          overflow: "hidden",
+          width: "100%",
+          display: "grid",
+          justifyContent: "center",
         }}
       >
         <Typography
@@ -47,8 +44,8 @@ export default function Testimonials() {
           sx={{
             fontWeight: "bold",
             textAlign: "center",
-            mb: '2rem',
-            width: 'fit-content'  // Ensures the Typography doesn't stretch unnecessarily
+            mb: "2rem",
+            width: "fit-content",
           }}
         >
           Don't take a word for it
@@ -107,4 +104,3 @@ export default function Testimonials() {
     </Box>
   );
 }
-

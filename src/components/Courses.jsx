@@ -197,7 +197,6 @@ export default function Course() {
                 {/* Country Code Field */}
                 <Grid item xs={5} sm={4} md={3}>
                   <TextField
-                    label="Country Code"
                     type="text"
                     variant="outlined"
                     size="medium"

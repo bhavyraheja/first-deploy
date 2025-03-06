@@ -99,7 +99,7 @@ export default function ModulesList() {
  
       <Box
         sx={{
-          width: "80%",
+          width: "40%",
           display: "flex",
           flexDirection: "column",
           gap: 2,

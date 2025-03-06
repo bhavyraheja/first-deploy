@@ -103,16 +103,8 @@ export default function ScrollControlledAnimationScreen() {
         backgroundImage: "radial-gradient(circle at 10% 20%, rgba(70, 0, 120, 0.1) 0%, rgba(0, 0, 0, 0) 80%)",
       }}
     >
-      {/* White Arch at the top with enhanced curve */}
-      <Box sx={{ position: "absolute", top: 0, left: 0, width: "100%", lineHeight: 0, zIndex:'9999' }}>
-        <svg viewBox="0 0 1440 200" preserveAspectRatio="none" style={{ display: "block", width: "100%" }}>
-          <path
-            fill="white"
-            d="M0,120 C240,40 720,0 1440,120 L1440,0 L0,0 Z"
-            style={{ filter: "drop-shadow(0px 4px 10px rgba(0,0,0,0.1))" }}
-          />
-        </svg>
-      </Box>
+
+
 
       {/* Main Scroll Section */}
       <Box 
