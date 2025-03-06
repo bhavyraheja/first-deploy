@@ -113,7 +113,7 @@ export default function ScrollControlledAnimationScreen() {
           position: "relative", 
           width: "100%", 
           // height: { xs: "130vh", sm: "180vh" }, 
-          height: "120vh",
+          height: "130vh",
           overflow: "hidden",
           display: "flex",
           flexDirection: "column",
