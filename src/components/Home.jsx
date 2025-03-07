@@ -6,13 +6,15 @@ import Courses from "./Courses";
 import Cards from "./Cards"
 import Animate from "./Animate";
 import ModuleCards from "./NewCards";
+import Hero2 from "./hero2";
 // Import any other components you want to include
 
 const Home = () => {
   return (
     <>
       
-      <Hero />
+      {/* <Hero /> */}
+      <Hero2/>
       <Courses />
       {/* <Image /> */}
       <Animate />
