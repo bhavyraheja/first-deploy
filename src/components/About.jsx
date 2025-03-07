@@ -272,7 +272,18 @@ the future of digital payments.
                   cursor: "pointer",
                 }}
               >
-                <ArrowForwardIosIcon sx={{ color: "#fff", fontSize: 16 }} />
+                <ArrowForwardIosIcon sx={{
+                  backgroundColor: "#E32933",
+                  borderRadius: "100%",
+                  padding: { xs: "10px", sm: "12px" },
+                  color: "white",
+                  fontSize: { xs: "32px", sm: "36px" },
+                  transform: founderExpanded ? "rotate(180deg)" : "none",
+                  transition: "transform 0.3s ease",
+                  cursor: "pointer",
+                  "&:hover": { backgroundColor: "#d32f2f" },
+                  marginLeft: "2px",
+                }} />
               </Box>
             </Box>
           </Box>
@@ -345,7 +356,18 @@ the future of digital payments.
                   cursor: "pointer",
                 }}
               >
-                <ArrowForwardIosIcon sx={{ color: "#fff", fontSize: 16 }} />
+                <ArrowForwardIosIcon sx={{
+                  backgroundColor: "#E32933",
+                  borderRadius: "100%",
+                  padding: { xs: "10px", sm: "12px" },
+                  color: "white",
+                  fontSize: { xs: "32px", sm: "36px" },
+                  transform: storyExpanded ? "rotate(180deg)" : "none",
+                  transition: "transform 0.3s ease",
+                  cursor: "pointer",
+                  "&:hover": { backgroundColor: "#d32f2f" },
+                  marginLeft: "2px",
+                }} />
               </Box>
             </Box>
           </Box>

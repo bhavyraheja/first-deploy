@@ -196,7 +196,7 @@ export default function FreeContent() {
               <ArrowForwardIosIcon
                 onClick={handleExpand}
                 sx={{
-                  backgroundColor: "red",
+                  backgroundColor: "#E32933",
                   borderRadius: "100%",
                   padding: { xs: "10px", sm: "12px"},
                   color: "white",
