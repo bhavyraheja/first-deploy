@@ -162,7 +162,6 @@ const Hero = () => {
                                     display: "block",
                                     border: "none"
                                 }}
-                                loading="lazy"
                             />
                         </Box>
                     </Box>
