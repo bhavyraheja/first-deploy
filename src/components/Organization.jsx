@@ -61,8 +61,8 @@ export default function Companies() {
       <Box sx={{ display: "flex", justifyContent: "center" }}>
         <Grid
           container
-          spacing={4}
-          sx={{ width: { xs: "90%", md: "80%" } }}
+          spacing={3}
+          sx={{ width: { xs: "95%", sm: "50%", md: "80%" } }}
           justifyContent="center"
         >
           {companies.map((company, index) => (
@@ -77,8 +77,8 @@ export default function Companies() {
             >
               <Box
                 sx={{
-                  width: 240, // Reduced width
-                  height: 180, // Reduced height
+                  width: { xs: "100%", sm: 160, md: 200 }, // Dynamic width based on screen size
+                  aspectRatio: "1/1", // Make it perfectly square
                   position: "relative",
                   border: "1px solid #ccc",
                   borderRadius: 3,
@@ -105,7 +105,11 @@ export default function Companies() {
                     component="img"
                     src={company.logo}
                     alt={company.name}
-                    sx={{ maxHeight: 24, objectFit: "contain" }} // Reduced max height of image
+                    sx={{ 
+                      maxHeight: { xs: 20, sm: 24, md: 28 }, // Responsive image size
+                      maxWidth: "70%",
+                      objectFit: "contain" 
+                    }}
                   />
                 </Box>
               </Box>

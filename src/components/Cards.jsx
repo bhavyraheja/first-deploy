@@ -35,7 +35,7 @@ export default function Testimonials() {
         style={{
           overflow: "hidden",
           width: "100%",
-          display: "grid",
+          display: "flex",
           justifyContent: "center",
         }}
       >

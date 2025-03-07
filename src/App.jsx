@@ -14,14 +14,17 @@ import MasterClass from "./components/MasterClass";
 import Reading from "./components/Reading";
 import Areuin from "./components/Areuin";
 import Footer from "./components/Footer";
+import ScrollToTop from "./components/ScrollToTop";
+
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <BrowserRouter>
+      <ScrollToTop />
         <Navbar />
-        <Box sx={{minHeight: "100vh", width: "100%", backgroundColor: "background.default" }}>
+        <Box sx={{ minHeight: "100vh", width: "100%", backgroundColor: "background.default" }}>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />

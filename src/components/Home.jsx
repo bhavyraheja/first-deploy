@@ -1,13 +1,11 @@
 import React from "react";
 import Hero from "./Hero";
 import Why from "./Why";
-import Image from "./Image"
 import Organization from "./Organization";
 import Courses from "./Courses";
-import Bars from "./Bars"
 import Cards from "./Cards"
-import Areuin from "./Areuin";
 import Animate from "./Animate";
+import ModuleCards from "./NewCards";
 // Import any other components you want to include
 
 const Home = () => {
@@ -20,7 +18,8 @@ const Home = () => {
       <Animate />
       <Why />
       <Organization />
-      <Bars />
+      {/* <Bars /> */}
+      <ModuleCards/>
       <Cards />
       {/* <Areuin /> */}
       {/* Add more components here as needed */}
