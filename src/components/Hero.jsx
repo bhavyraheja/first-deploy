@@ -1,250 +1,174 @@
-// import React from "react";
-// import { Box, Typography, Button } from "@mui/material";
-// import { DotLottieReact } from "@lottiefiles/dotlottie-react";
-
-// const Hero = () => {
-//   return (
-//     <Box sx={{ display: "flex", justifyContent: "center" }}>
-//       <Box
-//         sx={{
-//           position: "relative",
-//           display: "flex",
-//           alignItems: "center",
-//           justifyContent: "center",
-//           minHeight: { xs: "60vh", md: "100vh" },
-//           minWidth: "78%",
-//           maxWidth: "79%",
-//           overflow: "hidden",
-//           p: 4,
-//           backgroundColor: "#000",
-//         }}
-//       >
-//         {/* DotLottie Background Animation */}
-//         <Box
-//           sx={{
-//             position: "absolute",
-//             top: 0,
-//             left: 0,
-//             width: "100%",
-//             height: "100%",
-//             zIndex: 0,
-//           }}
-//         >
-//           <DotLottieReact
-//             src="https://lottie.host/97d733e3-a308-4894-8d9b-7b392dd374e8/AtO5k86ISX.lottie"
-//             loop
-//             autoplay
-//             style={{ width: "100%", height: "100%", objectFit: "cover" }}
-//           />
-//         </Box>
-
-//         {/* Hero Content */}
-//         <Box
-//           sx={{
-//             position: "relative",
-//             zIndex: 2,
-//             textAlign: "center",
-//           }}
-//         >
-//           <Typography
-//             sx={{
-//               fontSize: { xs: "1.5rem", md: "2rem" },
-//               fontWeight: 400,
-//               color: "#fff",
-//             }}
-//           >
-//             Breaking into{" "}
-//           </Typography>
-//           <Box
-//             component="span"
-//             sx={{
-//               fontWeight: 700,
-//               textTransform: "uppercase",
-//               fontSize: { xs: "1.5rem", md: "2rem" },
-//               color: "#E32933",
-//             }}
-//           >
-//             Cybersecurity
-//           </Box>{" "}
-//           <Box
-//             component="span"
-//             sx={{
-//               ml: 1,
-//               fontSize: { xs: "1.5rem", md: "2rem" },
-//               color: "#fff",
-//             }}
-//           >
-//             is hard
-//           </Box>{" "}
-//           <Box mt={3}>
-//             <Button
-//               variant="contained"
-//               sx={{
-//                 backgroundColor: "#E32933",
-//                 color: "#fff",
-//                 borderRadius: "9999px",
-//                 textTransform: "none",
-//                 px: 3,
-//                 py: 1,
-//                 "&:hover": { backgroundColor: "#c7252d" },
-//               }}
-//             >
-//               Find out more
-//             </Button>
-//           </Box>
-//         </Box>
-//       </Box>
-//     </Box>
-//   );
-// };
-
-// export default Hero;
-import React, { useEffect, useRef, useState } from "react"; 
-import { Box, Typography, Button } from "@mui/material";
+import React from 'react';
+import {
+    Box,
+    Typography,
+    Button,
+    Container,
+    useMediaQuery,
+    Grid
+} from '@mui/material';
+import { useTheme } from '@mui/material/styles';
 
 const Hero = () => {
-  const vantaRef = useRef(null);
-  const [vantaEffect, setVantaEffect] = useState(null);
+    const theme = useTheme();
+    const isSmallScreen = useMediaQuery(theme.breakpoints.down('md'));
 
-  useEffect(() => {
-    const loadScripts = async () => {
-      if (!window.THREE) {
-        const threeScript = document.createElement("script");
-        threeScript.src = "https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js";
-        threeScript.async = true;
-        document.body.appendChild(threeScript);
-        
-        await new Promise((resolve) => {
-          threeScript.onload = resolve;
-        });
-      }
-
-      if (!window.VANTA) {
-        const vantaScript = document.createElement("script");
-        vantaScript.src = "https://cdnjs.cloudflare.com/ajax/libs/vanta/0.5.24/vanta.birds.min.js";
-        vantaScript.async = true;
-        document.body.appendChild(vantaScript);
-        
-        await new Promise((resolve) => {
-          vantaScript.onload = resolve;
-        });
-      }
-
-      initVantaEffect();
-    };
-
-    const initVantaEffect = () => {
-      if (!vantaEffect && vantaRef.current && window.VANTA) {
-        const effect = window.VANTA.BIRDS({
-          el: vantaRef.current,
-          mouseControls: true,
-          touchControls: true,
-          gyroControls: false,
-          minHeight: 200.0,
-          minWidth: 200.0,
-          scale: 1.0,
-          scaleMobile: 1.0,
-          backgroundColor: "#ffffff", // Changed to white background
-          color1: 0xD53C32, // Red birds for contrast with white background
-          color2: 0xff8080, // Light red birds
-          birdSize: 1.5,
-          wingSpan: 30.0,
-          speedLimit: 5.0,
-          separation: 60.0,
-          alignment: 20.0,
-          cohesion: 30.0,
-          quantity: 3, // Keeps it minimal
-        });
-
-        setVantaEffect(effect);
-      }
-    };
-
-    loadScripts();
-
-    return () => {
-      if (vantaEffect) vantaEffect.destroy();
-    };
-  }, [vantaEffect]);
-
-  return (
-    <Box
-      ref={vantaRef}
-      sx={{
-        position: "relative",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        minHeight: { xs: "50vh", md: "100vh" }, // LESS HEIGHT ON MOBILE
-        width: "100%",
-        overflow: "hidden",
-        backgroundColor: "#ffffff", // Changed to white background
-        px: { xs: 2, md: 4 }, // Padding for mobile
-      }}
-    >
-      <Box
-        sx={{
-          position: "relative",
-          zIndex: 2,
-          textAlign: "center",
-          backgroundColor: "rgba(213, 60, 50, 0.8)", // Changed to semi-transparent red
-          p: { xs: 2, md: 4 }, // Adjust padding for mobile
-          borderRadius: 2,
-          backdropFilter: "blur(5px)",
-          width: { xs: "90%", md: "60%" }, // Responsive width
-        }}
-      >
-        <Typography
-          sx={{
-            fontSize: { xs: "1.2rem", md: "2rem" }, // Smaller font on mobile
-            fontWeight: 400,
-            color: "#fff",
-          }}
-        >
-          Breaking into{" "}
-        </Typography>
-        <Box
-          component="span"
-          sx={{
-            fontWeight: 700,
-            textTransform: "uppercase",
-            fontSize: { xs: "1.2rem", md: "2rem" },
-            color: "#fff",
-          }}
-        >
-          Cybersecurity
-        </Box>{" "}
-        <Box
-          component="span"
-          sx={{
-            ml: 1,
-            fontSize: { xs: "1.2rem", md: "2rem" },
-            color: "#fff",
-          }}
-        >
-          is hard
-        </Box>{" "}
-        <Box mt={3}>
-          <Button
-            variant="contained"
+    return (
+        <Container
+            maxWidth="lg"
             sx={{
-              backgroundColor: "#fff",
-              color: "#D53C32",
-              fontWeight: "bold",
-              borderRadius: "9999px",
-              textTransform: "none",
-              px: { xs: 2, md: 3 },
-              py: { xs: 1, md: 1.5 },
-              fontSize: { xs: "0.9rem", md: "1rem" }, // Adjust button text size
-              "&:hover": { backgroundColor: "#f5f5f5" },
+                py: { xs: '2rem', md: '4rem' },
+                minHeight: { xs: "auto", md: "100vh" },
+                display: "flex",
+                alignItems: "center"
             }}
-          >
-            Find out more
-          </Button>
-        </Box>
-      </Box>
-    </Box>
-  );
+        >
+            <Grid
+                container
+                spacing={{ xs: '3rem', md: '5rem' }}
+                alignItems="center"
+                direction={{ xs: "column-reverse", md: "row" }}
+            >
+                {/* Left side - Text box */}
+                <Grid item xs={12} md={6}>
+                    <Box
+                        sx={{
+                            position: "relative",
+                            zIndex: 2,
+                            textAlign: { xs: "center", md: "left" },
+                            p: { xs: '1.5rem', md: '2.5rem' },
+                            borderRadius: '1.5rem',
+                            backdropFilter: "blur(0.5rem)",
+                            width: "100%",
+                            height: "100%",
+                            minHeight: { xs: "auto", md: "20rem" },
+                            display: "flex",
+                            flexDirection: "column",
+                            justifyContent: "center"
+                        }}
+                    >
+                        <Typography
+                            variant="h4"
+                            sx={{
+                                fontWeight: "bold",
+                                mb: '0.5rem',
+                                fontSize: { xs: '1.5rem', sm: '1.75rem', md: '2rem' }
+                            }}
+                        >
+                            {/* Different heading length based on screen size */}
+                            <Box component="span" sx={{ display: { xs: 'none', sm: 'inline' } }}>
+                                Breaking into{" "}
+                                <Box component="span" sx={{ color: "#E32933" }}>
+                                    Cybersecurity
+                                </Box>
+                                {" "}is Hard
+                            </Box>
+                            <Box component="span" sx={{ display: { xs: 'inline', sm: 'none' } }}>
+                                <Box component="span" sx={{ color: "#E32933" }}>
+                                    Cybersecurity
+                                </Box>
+                                {" "}Career
+                            </Box>
+                        </Typography>
+
+                        <Typography
+                            variant="body1"
+                            sx={{
+                                color: "#4B5563",
+                                fontSize: { xs: '0.875rem', sm: '1rem', md: '1.125rem' },
+                                maxWidth: { xs: "100%", md: "95%" },
+                                mb: "1rem"
+                            }}
+                        >
+                            {/* Different paragraph length based on screen size */}
+                            <Box component="span" sx={{ display: { xs: 'none', md: 'inline' } }}>
+                                We'll guide you through the complex world of cybersecurity with expert resources and practical approaches.
+                            </Box>
+                            <Box component="span" sx={{ display: { xs: 'none', sm: 'inline', md: 'none' } }}>
+                                We'll guide you through cybersecurity with expert resources and practical approaches.
+                            </Box>
+                            <Box component="span" sx={{ display: { xs: 'inline', sm: 'none' } }}>
+                                Expert guidance for your cybersecurity journey.
+                            </Box>
+                        </Typography>
+
+                        <Box>
+                            <Button
+                                variant="contained"
+                                sx={{
+                                    backgroundColor: "#E32933",
+                                    fontWeight: "bold",
+                                    borderRadius: "9999px",
+                                    textTransform: "none",
+                                    px: { xs: '1.25rem', sm: '1.5rem', md: '2rem' },
+                                    py: { xs: '0.5rem', sm: '0.6rem', md: '0.75rem' },
+                                    fontSize: { xs: '0.875rem', sm: '1rem', md: '1.125rem' },
+                                    boxShadow: "0 0.25rem 0.75rem rgba(0, 0, 0, 0.15)",
+                                    "&:hover": {
+                                        backgroundColor: "#f5f5f5",
+                                        transform: "translateY(-0.125rem)",
+                                        transition: "all 0.3s ease"
+                                    },
+                                    transition: "all 0.3s ease"
+                                }}
+                            >
+                                <Box component="span" sx={{ display: { xs: 'none', sm: 'inline' } }}>
+                                    Find out more
+                                </Box>
+                                <Box component="span" sx={{ display: { xs: 'inline', sm: 'none' } }}>
+                                    Learn more
+                                </Box>
+                            </Button>
+                        </Box>
+                    </Box>
+                </Grid>
+
+                {/* Right side - Spline iframe */}
+                <Grid item xs={12} md={6}>
+                    <Box
+                        sx={{
+                            height: { xs: "18rem", sm: "22rem", md: "30rem" },
+                            width: "100%",
+                            overflow: "hidden",
+                            position: "relative",
+                            marginTop: { xs: "2rem", sm: "3rem", md: "5rem" }, // Refined top margins for all breakpoints
+                            "&::after": {
+                                content: '""',
+                                position: "absolute",
+                                top: 0,
+                                left: 0,
+                                bottom: 0,
+                                pointerEvents: "none"
+                            }
+                        }}
+                    >
+                        <Box
+                            sx={{
+                                position: "relative",
+                                width: "100%",
+                                height: "100%",
+                                // Adjusted scaling for better visibility on smaller screens
+                                transform: { xs: "scale(0.85)", sm: "scale(0.9)", md: "scale(1)" },
+                                transformOrigin: "center center"
+                            }}
+                        >
+                            <iframe
+                                src='https://my.spline.design/techinspired3dassets01protection-01139c8ee7e5098686c21a8e03dc50b0/'
+                                frameBorder='0'
+                                width='100%'
+                                height='100%'
+                                title="Tech Protection 3D Visualization"
+                                style={{
+                                    display: "block",
+                                    border: "none"
+                                }}
+                            />
+                        </Box>
+                    </Box>
+                </Grid>
+            </Grid>
+        </Container>
+    );
 };
 
 export default Hero;
