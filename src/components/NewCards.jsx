@@ -108,7 +108,7 @@ export default function ModuleCards() {
                         lg: "repeat(4, 1fr)"
                     },
                     gap: { xs: 2, md: 3 },
-                    width: {xs: "75%",sm : "80%",lg: "95%", md: "90%"},
+                    width: {xs: "75%",sm : "80%",lg: "78%", md: "80%"},
                     maxWidth: "1400px",
                 }}
             >
