@@ -6,12 +6,13 @@ import Courses from "./Courses";
 import Cards from "./Cards"
 import Animate from "./Animate";
 import ModuleCards from "./NewCards";
+import Navbar from "./Navbar";
 // Import any other components you want to include
 
 const Home = () => {
   return (
     <>
-      
+      <Navbar />
       <Hero />
       <Courses />
       {/* <Image /> */}
